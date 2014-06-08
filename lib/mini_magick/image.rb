@@ -364,7 +364,6 @@ module MiniMagick
     def run_command(command, *args)
       if command == 'identify'
         args.unshift '-ping'  # -ping "efficiently determine image characteristics."
-        args.unshift '-quiet' if MiniMagick.mogrify? # graphicsmagick has no -quiet option.
       end
 
       run(CommandBuilder.new(command, *args))
